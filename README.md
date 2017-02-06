@@ -11,3 +11,4 @@
 - [X] Generate articles list from pinboard feed
 - [ ] End-to-end automation
 - [ ] Ensure proper date sorting in template
+- [ ] Basic pagination (last 3 days + archive?)
