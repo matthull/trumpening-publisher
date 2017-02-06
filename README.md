@@ -10,3 +10,4 @@
 - [ ] Full QA env
 - [X] Generate articles list from pinboard feed
 - [ ] End-to-end automation
+- [ ] Ensure proper date sorting in template
