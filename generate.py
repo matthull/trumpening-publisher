@@ -21,15 +21,16 @@ def article_from_json(json):
   return {"day": day, "url": url, "name": name}
 
 pin_key = os.environ['PINBOARD_KEY']
-pin_url = "https://api.pinboard.in/v1/posts/all/?auth_token={pin_key}&format=json"
+pin_url = "https://api.pinboard.in/v1/posts/all/?auth_token={pin_key!s}&format=json".format(**locals())
 response = urlopen(pin_url).read()
 articles_json = json.loads(response.decode('utf-8'))
 articles = [article_from_json(j) for j in articles_json]
 
 days = {}
 for a in sorted(articles, key=itemgetter('day')):
-  days[a['day']] = days.get(a['day']) or []
-  days[a['day']].append(a)
+  day = days[a['day']]
+  days[day] = days.get(day) or []
+  days[day].append(a)
 
 context = {"days": days}
 
